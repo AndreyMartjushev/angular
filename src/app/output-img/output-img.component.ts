@@ -31,7 +31,7 @@ export class OutputImgComponent implements OnInit {
 
 @Component({
   selector: 'dialog-add-favorites',
-  templateUrl: '../dialog/dialogAddToFavorites.html',
+  templateUrl: './dialogAddToFavorites.html',
 })
 export class DialogAddFavorites implements OnInit {
   constructor( private store: Store<AppState>, @Inject(MAT_DIALOG_DATA) public data: any ) { }
