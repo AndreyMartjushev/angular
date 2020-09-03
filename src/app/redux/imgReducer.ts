@@ -17,6 +17,11 @@ export function imgReducer(state = initialState, action) {
                 ...state,
                 favorites: [...state.favorites, action.payload]
             }
+        case IMG_ACTION.CLEAR_OUTPUT_IMG:
+            return {
+                ...state,
+                img: []
+            }
         default:
             return state;
     }

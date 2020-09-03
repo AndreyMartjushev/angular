@@ -1,6 +1,6 @@
 import { GetImgService } from '../../services/GetImgService';
 import { AppState } from '../redux/app.state';
-import { GetImg } from '../redux/img.action';
+import { GetImg, ClearOutputImg } from '../redux/img.action';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store'
 
@@ -23,6 +23,8 @@ export class SearchFormComponent implements OnInit {
   }
 
   public getImg(): void {
+    this.store.dispatch(new ClearOutputImg([]))
+
     this.getImgService
       .getData(this.searchValue)
       .subscribe(
