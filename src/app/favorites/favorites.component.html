@@ -1,5 +1,9 @@
+<div>
+    <a routerLink="">Search</a>
+</div>
+
 <div class="outputImg">
-    <div *ngFor="let item of newImg" class="outputImg__item">
+    <div *ngFor="let item of favorites" class="outputImg__item">
         <img src="{{item.largeImageURL}}" alt="{{item.user}}" title="{{item.user}}" class="outputImg__item__img">
         <div class="outputImg__item__infoImg">
             <p>Author: <a href="https://pixabay.com/ru/users/{{item.user}}-{{item.user_id}}/" target="_blank">{{item.user}}</a></p>

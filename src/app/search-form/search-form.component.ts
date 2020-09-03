@@ -1,8 +1,7 @@
 import { GetImgService } from '../../services/GetImgService';
 import { AppState } from '../redux/app.state';
-import { AddImg } from '../redux/img.action';
+import { GetImg } from '../redux/img.action';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store'
 
 
@@ -28,8 +27,7 @@ export class SearchFormComponent implements OnInit {
       .getData(this.searchValue)
       .subscribe(
         (value) => {
-          //console.log(value.hits);
-          this.store.dispatch(new AddImg(value.hits))
+          this.store.dispatch(new GetImg(value.hits))
         },
         (error) => {
           throw error;

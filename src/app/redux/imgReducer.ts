@@ -1,27 +1,23 @@
-import { IMG_ACTION, AddImg } from './img.action';
+import { IMG_ACTION } from './img.action';
 
 const initialState = {
-    img: [{
-        author: "author",
-        url: "",
-        id: "1"
-    }, {
-        author: "author2",
-        url: "",
-        id: "1"
-    }]
+    img: [],
+    favorites: []
 }
 
-export function imgReducer(state = initialState, action: AddImg) {
+export function imgReducer(state = initialState, action) {
     switch (action.type) {
-        case IMG_ACTION.ADD_IMG:
+        case IMG_ACTION.GET_IMG:
             return {
                 ...state,
                 img: [...state.img, ...action.payload]
             }
-            break;
+        case IMG_ACTION.ADD_FAVORITES_IMG:
+            return {
+                ...state,
+                favorites: [...state.favorites, action.payload]
+            }
         default:
             return state;
-            break;
     }
 }

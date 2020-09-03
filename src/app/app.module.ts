@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store'
-
+import {Routes, RouterModule} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,19 +11,27 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { OutputImgComponent } from './output-img/output-img.component';
 import { GetImgService } from '../services/GetImgService';
 import { imgReducer } from './redux/imgReducer';
+import { FavoritesComponent } from './favorites/favorites.component';
 
+const appRoutes: Routes =[
+  { path: '', component: SearchFormComponent},
+  { path: 'favorites', component: FavoritesComponent},
+  { path: '**', redirectTo: '/'}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchFormComponent,
-    OutputImgComponent
+    OutputImgComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({imgPage: imgReducer})
+    StoreModule.forRoot({imgPage: imgReducer}), 
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [HttpClientModule, HttpClient, GetImgService],
   bootstrap: [AppComponent]

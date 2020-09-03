@@ -1,0 +1,17 @@
+.outputImg {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    &__item {
+        width: calc( 33% - 20px );
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &__img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
