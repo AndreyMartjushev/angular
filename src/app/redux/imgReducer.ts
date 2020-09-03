@@ -2,7 +2,8 @@ import { IMG_ACTION } from './img.action';
 
 const initialState = {
     img: [],
-    favorites: []
+    favorites: [],
+    category: ["cat", "dog"]
 }
 
 export function imgReducer(state = initialState, action) {
