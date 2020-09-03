@@ -1,8 +1,9 @@
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store'
+
 import { GetImgService } from '../../services/GetImgService';
 import { AppState } from '../redux/app.state';
 import { GetImg, ClearOutputImg } from '../redux/img.action';
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store'
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Store } from '@ngrx/store'
   styles: []
 })
 export class SearchFormComponent implements OnInit {
- 
+
   constructor(private getImgService: GetImgService, private store: Store<AppState>) { }
   ngOnInit(): void { }
 
@@ -19,7 +20,6 @@ export class SearchFormComponent implements OnInit {
 
   public changeInput(value): void {
     this.searchValue = value;
-    console.log(value);
   }
 
   public getImg(): void {
