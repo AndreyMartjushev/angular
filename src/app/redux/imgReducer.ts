@@ -13,9 +13,16 @@ export function imgReducer(state = initialState, action) {
                 img: [...state.img, ...action.payload]
             }
         case IMG_ACTION.ADD_FAVORITES_IMG:
-            return {
-                ...state,
-                favorites: [...state.favorites, action.payload]
+            if(state.favorites.find((item) => item.id === action.payload.id)) {
+                return {
+                    ...state,
+                    favorites: [...state.favorites]
+                }
+            } else {
+                return {
+                    ...state,
+                    favorites: [...state.favorites, action.payload]
+                }
             }
         case IMG_ACTION.CLEAR_OUTPUT_IMG:
             return {
