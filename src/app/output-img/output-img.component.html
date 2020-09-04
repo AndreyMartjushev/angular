@@ -2,10 +2,9 @@
   <div *ngFor="let item of newImg" class="outputImg__item">
     <img src="{{item.largeImageURL}}" alt="{{item.user}}" title="{{item.user}}" class="outputImg__item__img">
     <div class="outputImg__item__infoImg">
-      <p>Author: <a href="https://pixabay.com/ru/users/{{item.user}}-{{item.user_id}}/"
+      <p class="outputImg__item__author">Author: <a href="https://pixabay.com/ru/users/{{item.user}}-{{item.user_id}}/"
           target="_blank">{{item.user}}</a></p>
-      <button (click)="addFavorites(item)">Add to favourites</button>
-      <button mat-button (click)="openDialog(item)">Open dialog</button>
+      <button class="outputImg__item__btn" (click)="openDialog(item)">Open dialog</button>
     </div>
   </div>
 </div>

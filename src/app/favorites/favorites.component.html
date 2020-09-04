@@ -1,28 +1,26 @@
-<div>
-  <a routerLink="">Back to search</a>
-</div>
+<section class="favorites">
+  <a class="favorites__link" routerLink="">Back to search</a>
+  <div *ngFor="let item1 of category" class="outputImg">
 
-<div *ngFor="let item1 of category" class="outputImg">
-  
-  <ng-container *ngFor="let item of favorites; let i = index">
-    <ng-container *ngIf="item1 === item.category && i === 1">
-      <div class="outputImg__caption">{{item1}}</div>
+    <ng-container *ngFor="let item of favorites">
+      <ng-container *ngIf="item1 === item.category">
+        <div class="outputImg__caption">{{item1}}</div>
+      </ng-container>
     </ng-container>
-  </ng-container>
 
-  <ng-container *ngFor="let item of favorites">
-    <ng-container *ngIf="item1 === item.category">
-
-      <div class="outputImg__item">
-        <img src="{{item.largeImageURL}}" alt="{{item.user}}" title="{{item.user}}" class="outputImg__item__img">
-        <button (click)="download(item.largeImageURL)">Add to favourites</button>
-        <div class="outputImg__item__infoImg">
-          <p>Author: <a href="https://pixabay.com/ru/users/{{item.user}}-{{item.user_id}}/"
-              target="_blank">{{item.user}}</a></p>
+    <ng-container *ngFor="let item of favorites">
+      <ng-container *ngIf="item1 === item.category">
+        <div class="outputImg__item">
+          <img src="{{item.largeImageURL}}" alt="{{item.user}}" title="{{item.user}}" class="outputImg__item__img">
+          <div class="outputImg__item__infoImg">
+            <p class="outputImg__item__author">Author: <a
+                href="https://pixabay.com/ru/users/{{item.user}}-{{item.user_id}}/" target="_blank">{{item.user}}</a>
+            </p>
+            <button class="outputImg__item__btn" (click)="download(item.largeImageURL)">Save Image</button>
+          </div>
         </div>
-      </div>
-
+      </ng-container>
     </ng-container>
-  </ng-container>
 
-</div>
+  </div>
+</section>

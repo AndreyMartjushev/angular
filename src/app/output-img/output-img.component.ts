@@ -1,8 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store'
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
-import { AddImg } from '../redux/img.action';
 import { AppState } from '../redux/app.state';
 import { DialogAddToFavorites } from '../dialog/dialogAddToFavorites';
 
@@ -20,16 +19,9 @@ export class OutputImgComponent implements OnInit {
       this.newImg = img;
     })
   }
-
- 
-
   openDialog(item) {
     const dialogRef = this.dialog.open(DialogAddToFavorites, {
       data: item
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 }

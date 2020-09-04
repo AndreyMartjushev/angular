@@ -1,0 +1,25 @@
+.addToFavorite {
+    &__caption {
+        margin-bottom: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+    &__select {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 25px;
+    }
+    &__text {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    &__boxNewCat {
+        margin-bottom: 25px;
+        display: flex;
+    }
+    &__btn {
+        width: 100%;
+        padding: 5px 15px;
+        cursor: pointer;
+    }
+}

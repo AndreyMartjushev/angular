@@ -5,18 +5,16 @@ import { GetImgService } from '../../services/GetImgService';
 import { AppState } from '../redux/app.state';
 import { GetImg, ClearOutputImg } from '../redux/img.action';
 
-
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
-  styles: []
+  styleUrls: ['./search-form.component.scss']
 })
 export class SearchFormComponent implements OnInit {
-
   constructor(private getImgService: GetImgService, private store: Store<AppState>) { }
   ngOnInit(): void { }
 
-  public searchValue = "";
+  public searchValue: string = "";
 
   public changeInput(value): void {
     this.searchValue = value;
@@ -24,7 +22,6 @@ export class SearchFormComponent implements OnInit {
 
   public getImg(): void {
     this.store.dispatch(new ClearOutputImg([]))
-
     this.getImgService
       .getData(this.searchValue)
       .subscribe(
@@ -36,5 +33,4 @@ export class SearchFormComponent implements OnInit {
         }
       )
   }
-
 }

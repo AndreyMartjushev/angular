@@ -1,7 +1,9 @@
-<div>
-  <a routerLink="favorites">favorites</a>
-</div>
-<label>Search image</label>
-<input placeholder="Cat" (input)="changeInput($event.target.value)">
-<button (click)="getImg()">Search</button>
+<section class="search">
+  <a class="search__link" routerLink="favorites">favorites</a>
+  <h1 class="search__caption">Search images</h1>
+  <label class="search__label" for="searchImg">Search image</label>
+  <input class="search__input" id="searchImg" placeholder="Cat" (input)="changeInput($event.target.value)">
+  <button class="search__btn" (click)="getImg()">Search</button>
+</section>
+
 <app-output-img></app-output-img>

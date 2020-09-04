@@ -9,9 +9,36 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #010101;
+        border-radius: 3px;
         &__img {
             width: 100%;
             height: auto;
+        }
+        &__infoImg {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            opacity: 0;
+            background: #fff;
+            padding: 10px;
+            transition: all .3s;
+        }
+        &__author {
+            margin-top: 0;
+        }
+        &__btn {
+            width: 100%;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+        &:hover {
+            .outputImg__item__infoImg {
+                opacity: 1;
+            }
         }
     }
 }

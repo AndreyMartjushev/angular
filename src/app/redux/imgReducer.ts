@@ -34,7 +34,7 @@ export function imgReducer(state = initialState, action) {
         case CATEGORY_ACTION.NEW_CATEGORY:
             return {
                 ...state,
-                category: [...state.category, ...action.payload]
+                category: [...state.category, action.payload]
             }
         default:
             return state;

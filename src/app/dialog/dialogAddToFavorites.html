@@ -1,11 +1,13 @@
-<div>select category</div>
-<select  class="outputImg__item" (change)="onChange($event)">
-    <option value="other" selected></option>
-    <option *ngFor="let item of category" value="{{item}}">{{item}}</option>
-</select>
-<p>Add new category:</p>
-<div>
-    <input type="text" (input)="changeInputNewCategory($event.target.value)">
-    <button (click)="addNewCategory()">Add to favourites</button>
+<div class="addToFavorite">
+    <div class="addToFavorite__caption">select category</div>
+    <select class="addToFavorite__select" (change)="onChange($event)">
+        <option value="other" selected></option>
+        <option *ngFor="let item of category" value="{{item}}">{{item}}</option>
+    </select>
+    <p class="addToFavorite__text">Add new category:</p>
+    <div class="addToFavorite__boxNewCat">
+        <input type="text" (input)="changeInputNewCategory($event.target.value)">
+        <button class="addToFavorite__btn" (click)="addNewCategory()">Add to favourites</button>
+    </div>
+    <button class="addToFavorite__btn" (click)="addFavorites()">Add to favourites</button>
 </div>
-<button (click)="addFavorites()">Add to favourites</button>

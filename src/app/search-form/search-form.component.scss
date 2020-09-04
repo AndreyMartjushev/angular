@@ -1,0 +1,25 @@
+.search {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    &__link {
+        text-decoration: none;
+        font-size: 18px;
+        color: #000;
+        text-transform: uppercase;
+    }
+    &__caption {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    &__label {
+        display: block;
+    }
+    &__input {
+        width: 450px;
+        padding: 5px 15px;
+    }
+    &__btn {
+        padding: 5px 15px;
+        cursor: pointer;
+    }
+}
