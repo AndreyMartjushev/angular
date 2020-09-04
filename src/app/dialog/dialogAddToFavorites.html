@@ -1,9 +1,7 @@
 <div>select category</div>
-
-
-<ul>
-    <li *ngFor="let item of category">{{item}}</li>
-  </ul>
-  
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button (click)="addFavorites(item)">Add to favourites</button>
+<select  class="outputImg__item" (change)="onChange($event)">
+    <option value="noCategory">No category</option>
+    <option *ngFor="let item of category" value="{{item}}">{{item}}</option>
+</select>
+<p>Add new category:</p>
+<button (click)="addFavorites()">Add to favourites</button>

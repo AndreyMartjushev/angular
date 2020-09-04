@@ -5,6 +5,7 @@
       <p>Author: <a href="https://pixabay.com/ru/users/{{item.user}}-{{item.user_id}}/"
           target="_blank">{{item.user}}</a></p>
       <button (click)="addFavorites(item)">Add to favourites</button>
+      <button mat-button (click)="openDialog(item)">Open dialog</button>
     </div>
   </div>
 </div>

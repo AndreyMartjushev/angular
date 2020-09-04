@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '../redux/app.state';
 import { Store } from '@ngrx/store'
+import { AddImg } from '../redux/img.action';
 
 @Component({
   selector: 'app-favorites',

@@ -13,6 +13,9 @@ import { GetImgService } from '../services/GetImgService';
 import { imgReducer } from './redux/imgReducer';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogAddToFavorites } from './dialog/dialogAddToFavorites';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 const appRoutes: Routes =[
   { path: '', component: SearchFormComponent},
@@ -25,7 +28,8 @@ const appRoutes: Routes =[
     AppComponent,
     SearchFormComponent,
     OutputImgComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    DialogAddToFavorites
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,8 @@ const appRoutes: Routes =[
     HttpClientModule,
     StoreModule.forRoot({imgPage: imgReducer}), 
     RouterModule.forRoot(appRoutes), 
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MatDialogModule
   ],
   providers: [HttpClientModule, HttpClient, GetImgService],
   bootstrap: [AppComponent]
