@@ -1,15 +1,28 @@
 <div>
-  <a routerLink="">Search</a>
+  <a routerLink="">Back to search</a>
 </div>
-<div class="outputImg">
-  <div *ngFor="let item of favorites" class="outputImg__item">
-    <a href="{{item.largeImageURL}}" download target="_blank">
-      <img src="{{item.largeImageURL}}" alt="{{item.user}}" title="{{item.user}}" class="outputImg__item__img">
-    </a>
-      
-    <div class="outputImg__item__infoImg">
-      <p>Author: <a href="https://pixabay.com/ru/users/{{item.user}}-{{item.user_id}}/"
-          target="_blank">{{item.user}}</a></p>
-    </div>
-  </div>
+
+<div *ngFor="let item1 of category" class="outputImg">
+  
+  <ng-container *ngFor="let item of favorites; let i = index">
+    <ng-container *ngIf="item1 === item.category && i === 1">
+      <div class="outputImg__caption">{{item1}}</div>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngFor="let item of favorites">
+    <ng-container *ngIf="item1 === item.category">
+
+      <div class="outputImg__item">
+        <img src="{{item.largeImageURL}}" alt="{{item.user}}" title="{{item.user}}" class="outputImg__item__img">
+        <button (click)="download(item.largeImageURL)">Add to favourites</button>
+        <div class="outputImg__item__infoImg">
+          <p>Author: <a href="https://pixabay.com/ru/users/{{item.user}}-{{item.user_id}}/"
+              target="_blank">{{item.user}}</a></p>
+        </div>
+      </div>
+
+    </ng-container>
+  </ng-container>
+
 </div>

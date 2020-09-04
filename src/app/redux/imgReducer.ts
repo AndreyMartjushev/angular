@@ -1,9 +1,10 @@
 import { IMG_ACTION } from './img.action';
+import { CATEGORY_ACTION } from './category.action';
 
 const initialState = {
     img: [],
     favorites: [],
-    category: ["cat", "dog"]
+    category: ["cat", "dog", "other"]
 }
 
 export function imgReducer(state = initialState, action) {
@@ -29,6 +30,11 @@ export function imgReducer(state = initialState, action) {
             return {
                 ...state,
                 img: []
+            }
+        case CATEGORY_ACTION.NEW_CATEGORY:
+            return {
+                ...state,
+                category: [...state.category, ...action.payload]
             }
         default:
             return state;

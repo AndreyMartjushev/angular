@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { AppState } from '../redux/app.state';
 import { AddImg } from '../redux/img.action';
+import { newCategory } from '../redux/category.action';
 
 
 @Component({
@@ -13,8 +14,10 @@ export class DialogAddToFavorites {
   constructor ( @Inject(MAT_DIALOG_DATA) public data: any, private store: Store<AppState> ) { }
 
   public category: [];
-  public currentCategory: "noCategory";
+  public currentCategory = "other";
   public itemSave;
+  public newCategory;
+
 
   ngOnInit() {
     this.store.select('imgPage').subscribe(({ category }) => {
@@ -22,16 +25,26 @@ export class DialogAddToFavorites {
     })
 
     this.itemSave = Object.assign({}, this.data);
-    
+    this.itemSave.category = this.currentCategory;
   }
   onChange(event) {
     this.currentCategory = event.target.options[event.target.options.selectedIndex].value;
     this.itemSave.category = this.currentCategory;
-    console.log(this.itemSave);
-    
   }
 
   public addFavorites() {
+    console.log(this.itemSave);
+    
     this.store.dispatch(new AddImg(this.itemSave))
   }
+  public changeInputNewCategory(value): void {
+    this.newCategory = value;
+  }
+  
+  public addNewCategory() {
+    if (this.newCategory) {
+      this.store.dispatch(new newCategory(this.newCategory))
+    }
+  }
+  
 }

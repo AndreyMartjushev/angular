@@ -13,11 +13,19 @@ export class FavoritesComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   public favorites: [];
+  public category: [];
   public fileUrl;
-  
+
   ngOnInit(): void {
+    this.store.select('imgPage').subscribe(({ category }) => {
+      this.category = category;
+    })
+    
     this.store.select('imgPage').subscribe(({ favorites }) => {
       this.favorites = favorites;
     })
   }
+  download(url) {
+    
+  };
 }
